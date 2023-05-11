@@ -17,9 +17,24 @@ require_once('vendor/autoload.php');
 $f3 = Base::instance();
 
 // Define a default route
-$f3->route('GET /', function() {
+$f3->route('GET /', function($f3) {
 
-    //echo '<h1>Welcome to Week 6!</h1>';
+    // Add data to F3 "hive"
+    $f3->set('color', 'green');
+    $f3->set('food', 'pizza');
+    $f3->set('title', 'Welcome to Week 6: Templating');
+    $f3->set('temp', 67);
+
+    // Add a radius variable to your controller
+    $f3->set('radius', 10);
+
+    // Add an array of fruits to the controller
+    $fruits = array('banana', 'apple', 'kiwi');
+    $f3->set('fruits', $fruits);
+
+    // Add an array of vegetables to the controller
+    // Display them as a numbered list in the view page
+
 
     // Display a view page
     $view = new Template();

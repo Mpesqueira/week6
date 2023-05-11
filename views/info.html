@@ -5,9 +5,28 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome to Week 6</title>
+    <title>{{ @title }}</title>
 </head>
 <body>
-  <h1>Templating</h1>
+    <h1>{{ @title }}</h1>
+    <p>My favorite color is {{ @color }}</p>
+    <p>My favorite food is {{ @food }}</p>
+
+    <h2>Temperature</h2>
+    <p>Fahrenheit: {{ @temp }} degrees</p>
+    <p>Celsius: {{ round((@temp-32) * (5.0/9.0), 2) }}</p>
+
+    <!-- Template: Print the circumference of a circle
+         C = 2 * PI * radius
+         Round to 3 decimal places -->
+
+    <h2>Circumference</h2>
+    <p>Circle radius: {{ @radius }}</p>
+    <p>Circumference: {{ round(pi() * (@radius * @radius), 3) }}</p>
+
+    <h2>Favorite Fruits</h2>
+    <repeat group="{{ @fruits }}" value="{{ @fruit }}">
+        <p>{{ @fruit }}</p>
+    </repeat>
 </body>
 </html>
